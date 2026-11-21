@@ -97,6 +97,27 @@
         "commit": "91ea70e9ee69c91b379d77f8e7a384890446c89b",
         "path": "plugins/themes-classic"
       }
+    },
+    {
+      "id": "map-styles-constellation",
+      "name": "Constellation map style",
+      "version": "1.0.0",
+      "type": "map-style",
+      "description": "The agent map as a night sky: loops are stars joined to a glowing core by faint lines.",
+      "author": "AstroHub",
+      "homepage": "https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/map-styles-constellation",
+      "permissions": {
+        "network": [],
+        "exec": [],
+        "peek": [],
+        "effects": [],
+        "capabilities": []
+      },
+      "source": {
+        "git": "https://github.com/AstrohubPty/AstroAI-Plugins",
+        "commit": "87d05ca823a1685d1052f6995fb35866737c67fd",
+        "path": "plugins/map-styles-constellation"
+      }
     }
   ]
 }
