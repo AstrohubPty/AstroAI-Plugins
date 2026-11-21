@@ -1,0 +1,12 @@
+api: 1
+id: map-styles-constellation
+name: Constellation map style
+version: 1.0.0
+type: map-style
+description: "The agent map as a night sky: loops are stars joined to a glowing core by faint lines."
+author: AstroHub
+license: Apache-2.0
+homepage: https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/map-styles-constellation
+provides:
+  map_styles:
+    - { id: constellation, label: Constellation, note: "A night sky: loops are stars, joined to a glowing core by faint lines.", file: constellation.js }
