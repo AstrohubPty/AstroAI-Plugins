@@ -1,0 +1,11 @@
+api: 1
+id: themes-classic
+name: Classic colour schemes
+version: 1.0.0
+type: theme
+description: Nord, Gruvbox and Solarized Light, as AstroAI colour schemes.
+author: AstroHub
+license: Apache-2.0
+homepage: https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/themes-classic
+provides:
+  theme: theme.yaml
