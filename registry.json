@@ -50,6 +50,32 @@
         "commit": "75575af7b8187798a2143163b81a4960d432432d",
         "path": "plugins/railway"
       }
+    },
+    {
+      "id": "posthog",
+      "name": "PostHog",
+      "version": "1.0.0",
+      "type": "integration",
+      "description": "Visitors, pageviews, top pages and the events you count in a PostHog project, this week against last.",
+      "author": "AstroHub",
+      "homepage": "https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/posthog",
+      "permissions": {
+        "network": [
+          "us.posthog.com",
+          "eu.posthog.com"
+        ],
+        "exec": [],
+        "peek": [],
+        "effects": [],
+        "capabilities": [
+          "analytics"
+        ]
+      },
+      "source": {
+        "git": "https://github.com/AstrohubPty/AstroAI-Plugins",
+        "commit": "233ba44bdb123af5035eb6a88b1ea920ff981f41",
+        "path": "plugins/posthog"
+      }
     }
   ]
 }
