@@ -118,6 +118,90 @@
         "commit": "87d05ca823a1685d1052f6995fb35866737c67fd",
         "path": "plugins/map-styles-constellation"
       }
+    },
+    {
+      "id": "themes-hud-extra",
+      "name": "More HUD colour schemes",
+      "version": "1.0.0",
+      "type": "theme",
+      "description": "Emerald matrix, Violet nebula, Dusk and Ivory for the HUD style.",
+      "author": "AstroHub",
+      "homepage": "https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/themes-hud-extra",
+      "permissions": {
+        "network": [],
+        "exec": [],
+        "peek": [],
+        "effects": [],
+        "capabilities": []
+      },
+      "source": {
+        "git": "https://github.com/AstrohubPty/AstroAI-Plugins",
+        "commit": "28e1c078fd90d2d9c3a8c75bdf9fbf05cfe9c4f7",
+        "path": "plugins/themes-hud-extra"
+      }
+    },
+    {
+      "id": "themes-glass",
+      "name": "Glass style colour schemes",
+      "version": "1.0.0",
+      "type": "theme",
+      "description": "The Glass style (frosted, translucent panels over a colour wash): Aurora, Ocean, Sunset, Twilight and Frost.",
+      "author": "AstroHub",
+      "homepage": "https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/themes-glass",
+      "permissions": {
+        "network": [],
+        "exec": [],
+        "peek": [],
+        "effects": [],
+        "capabilities": []
+      },
+      "source": {
+        "git": "https://github.com/AstrohubPty/AstroAI-Plugins",
+        "commit": "28e1c078fd90d2d9c3a8c75bdf9fbf05cfe9c4f7",
+        "path": "plugins/themes-glass"
+      }
+    },
+    {
+      "id": "themes-material",
+      "name": "Material style colour schemes",
+      "version": "1.0.0",
+      "type": "theme",
+      "description": "The Material style (clean flat surfaces with gentle elevation): Indigo, Teal, Slate, Paper and Sand.",
+      "author": "AstroHub",
+      "homepage": "https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/themes-material",
+      "permissions": {
+        "network": [],
+        "exec": [],
+        "peek": [],
+        "effects": [],
+        "capabilities": []
+      },
+      "source": {
+        "git": "https://github.com/AstrohubPty/AstroAI-Plugins",
+        "commit": "28e1c078fd90d2d9c3a8c75bdf9fbf05cfe9c4f7",
+        "path": "plugins/themes-material"
+      }
+    },
+    {
+      "id": "map-styles-classic",
+      "name": "Classic map styles",
+      "version": "1.0.0",
+      "type": "map-style",
+      "description": "Nine more ways to draw the agent map: Radar, Synapse, Reactor, Terminal, Spectrum, Singularity, Grid, Subway and Weather.",
+      "author": "AstroHub",
+      "homepage": "https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/map-styles-classic",
+      "permissions": {
+        "network": [],
+        "exec": [],
+        "peek": [],
+        "effects": [],
+        "capabilities": []
+      },
+      "source": {
+        "git": "https://github.com/AstrohubPty/AstroAI-Plugins",
+        "commit": "28e1c078fd90d2d9c3a8c75bdf9fbf05cfe9c4f7",
+        "path": "plugins/map-styles-classic"
+      }
     }
   ]
 }
