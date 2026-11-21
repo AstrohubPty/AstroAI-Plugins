@@ -1,0 +1,11 @@
+api: 1
+id: themes-glass
+name: Glass style colour schemes
+version: 1.0.0
+type: theme
+description: "The Glass style (frosted, translucent panels over a colour wash): Aurora, Ocean, Sunset, Twilight and Frost."
+author: AstroHub
+license: Apache-2.0
+homepage: https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/themes-glass
+provides:
+  theme: theme.yaml

@@ -1,0 +1,11 @@
+api: 1
+id: themes-material
+name: Material style colour schemes
+version: 1.0.0
+type: theme
+description: "The Material style (clean flat surfaces with gentle elevation): Indigo, Teal, Slate, Paper and Sand."
+author: AstroHub
+license: Apache-2.0
+homepage: https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/themes-material
+provides:
+  theme: theme.yaml

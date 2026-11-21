@@ -1,0 +1,20 @@
+api: 1
+id: map-styles-classic
+name: Classic map styles
+version: 1.0.0
+type: map-style
+description: "Nine more ways to draw the agent map: Radar, Synapse, Reactor, Terminal, Spectrum, Singularity, Grid, Subway and Weather."
+author: AstroHub
+license: Apache-2.0
+homepage: https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/map-styles-classic
+provides:
+  map_styles:
+    - { id: radar, label: Radar, note: "A tactical scope: the sweep lights each loop as it passes.", file: radar.js }
+    - { id: synapse, label: Synapse, note: "A neural net: signals fire down curved links into a living core.", file: synapse.js }
+    - { id: reactor, label: Reactor, note: "An arc reactor on a hex floor, its loops as LED gauges.", file: reactor.js }
+    - { id: terminal, label: Terminal, note: "Glyph rain behind a live console: the loops as bracketed boxes.", file: terminal.js }
+    - { id: spectrum, label: Spectrum, note: "An audio visualiser: the core plays the work, links swing as waves.", file: spectrum.js }
+    - { id: singularity, label: Singularity, note: "A black hole: work spirals in through a glowing accretion disc.", file: singularity.js }
+    - { id: grid, label: Grid, note: "Synthwave: a striped sun setting over a neon grid, light cycles for runs.", file: grid.js }
+    - { id: subway, label: Subway, note: "A transit map: a line per loop, its stages as stations, sessions as trains.", file: subway.js }
+    - { id: weather, label: Weather, note: "A weather map: isobars tighten round busy loops, a storm turns at the core.", file: weather.js }

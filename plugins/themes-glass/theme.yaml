@@ -1,0 +1,141 @@
+# Colour schemes as data: colours only, no code and no CSS. AstroAI writes the style rule from these, and refuses a scheme whose text can't be read.
+schemes:
+  - id: aurora
+    label: Aurora
+    note: "Cyan and violet light behind frosted glass"
+    style: glass
+    tone: dark
+    tokens:
+      bg: "#0b0f1f"
+      bg-2: "#1b1240"
+      panel: "rgba(255, 255, 255, 0.07)"
+      panel-solid: "#171b33"
+      panel-2: "rgba(255, 255, 255, 0.1)"
+      line: "rgba(255, 255, 255, 0.14)"
+      line-strong: "rgba(255, 255, 255, 0.3)"
+      glow: "rgba(120, 220, 255, 0.25)"
+      accent: "#7ee0ff"
+      accent-2: "#b48cff"
+      text: "#f3f6ff"
+      muted: "#a9b2d6"
+      faint: "#7b83a7"
+      state-idle: "#7ee0ff"
+      state-running: "#7dffc8"
+      state-dead: "#ff7a8a"
+      wash-1: "#2bd4ff"
+      wash-2: "#8a5cff"
+      wash-3: "#ff5fb8"
+  - id: ocean
+    label: Ocean
+    note: "Deep blue water and teal"
+    style: glass
+    tone: dark
+    tokens:
+      bg: "#04121c"
+      bg-2: "#062a3c"
+      panel: "rgba(255, 255, 255, 0.07)"
+      panel-solid: "#0b2231"
+      panel-2: "rgba(255, 255, 255, 0.1)"
+      line: "rgba(200, 240, 255, 0.15)"
+      line-strong: "rgba(200, 240, 255, 0.32)"
+      glow: "rgba(60, 200, 230, 0.25)"
+      accent: "#5fe3ff"
+      accent-2: "#2a8fd6"
+      text: "#eefaff"
+      muted: "#9cc3d2"
+      faint: "#688c9d"
+      state-idle: "#5fe3ff"
+      state-running: "#6dffb0"
+      state-dead: "#ff6b7d"
+      wash-1: "#00b4d8"
+      wash-2: "#0077b6"
+      wash-3: "#48e5c2"
+  - id: sunset
+    label: Sunset
+    note: "Coral, rose and gold"
+    style: glass
+    tone: dark
+    tokens:
+      bg: "#160a14"
+      bg-2: "#32112a"
+      panel: "rgba(255, 255, 255, 0.07)"
+      panel-solid: "#2a1024"
+      panel-2: "rgba(255, 255, 255, 0.1)"
+      line: "rgba(255, 220, 230, 0.15)"
+      line-strong: "rgba(255, 220, 230, 0.32)"
+      glow: "rgba(255, 140, 120, 0.25)"
+      accent: "#ffb38a"
+      accent-2: "#ff6fa3"
+      text: "#fff4f0"
+      muted: "#d6aab3"
+      faint: "#a17884"
+      state-idle: "#ffb38a"
+      state-running: "#ffe27a"
+      state-dead: "#ff5c74"
+      wash-1: "#ff7e5f"
+      wash-2: "#d6336c"
+      wash-3: "#ffc857"
+  - id: twilight
+    label: Twilight
+    note: "Lilac and steel glass, between dark and light"
+    style: glass
+    tone: mid
+    button_mix: 20
+    tokens:
+      bg: "#393c55"
+      bg-2: "#4a3f63"
+      panel: "rgba(255, 255, 255, 0.11)"
+      panel-solid: "#444865"
+      panel-2: "rgba(255, 255, 255, 0.15)"
+      line: "rgba(255, 255, 255, 0.18)"
+      line-strong: "rgba(255, 255, 255, 0.36)"
+      glow: "rgba(190, 170, 255, 0.25)"
+      accent: "#ddd2ff"
+      accent-2: "#a9c4ff"
+      text: "#f8f7ff"
+      muted: "#dedbf0"
+      faint: "#cdc9e3"
+      state-idle: "#cfc6ff"
+      state-running: "#a4f4d8"
+      state-dead: "#ffb4bf"
+      ok: "#a4f4cf"
+      warn: "#ffd994"
+      danger: "#ffb8c2"
+      wash-1: "#7a8cff"
+      wash-2: "#b07ae0"
+      wash-3: "#5fb8c8"
+      sunk: "rgba(0, 0, 0, 0.16)"
+      shadow: "rgba(10, 8, 30, 0.35)"
+  - id: frost
+    label: Frost
+    note: "Light frosted glass on pastel"
+    style: glass
+    tone: light
+    tokens:
+      bg: "#e9eef7"
+      bg-2: "#dfe6f5"
+      panel: "rgba(255, 255, 255, 0.55)"
+      panel-solid: "#f7f9fd"
+      panel-2: "rgba(255, 255, 255, 0.7)"
+      line: "rgba(40, 60, 110, 0.12)"
+      line-strong: "rgba(40, 60, 110, 0.26)"
+      glow: "rgba(80, 120, 255, 0.18)"
+      accent: "#2b4fd0"
+      accent-2: "#6a3fd0"
+      text: "#1a2340"
+      muted: "#424a66"
+      faint: "#535c7a"
+      state-idle: "#3a63f0"
+      state-running: "#12a37a"
+      state-dead: "#e0364c"
+      wash-1: "#8fb8ff"
+      wash-2: "#c9a8ff"
+      wash-3: "#8ee3d2"
+      ok: "#0a7a54"
+      warn: "#8f5300"
+      danger: "#c21f35"
+      sunk: "rgba(30, 50, 100, 0.06)"
+      tip-bg: "rgba(255, 255, 255, 0.92)"
+      shadow: "rgba(30, 40, 80, 0.18)"
+      text-strong: "#0d1530"
+      on-accent: "#ffffff"

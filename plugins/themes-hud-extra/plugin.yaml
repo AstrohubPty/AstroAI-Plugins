@@ -1,0 +1,11 @@
+api: 1
+id: themes-hud-extra
+name: More HUD colour schemes
+version: 1.0.0
+type: theme
+description: "Emerald matrix, Violet nebula, Dusk and Ivory for the HUD style."
+author: AstroHub
+license: Apache-2.0
+homepage: https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/themes-hud-extra
+provides:
+  theme: theme.yaml

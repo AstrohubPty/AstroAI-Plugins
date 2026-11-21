@@ -1,0 +1,138 @@
+# Colour schemes as data: colours only, no code and no CSS. AstroAI writes the style rule from these, and refuses a scheme whose text can't be read.
+schemes:
+  - id: indigo
+    label: Indigo
+    note: "Dark surfaces, indigo accent"
+    style: material
+    tone: dark
+    tokens:
+      bg: "#121212"
+      bg-2: "#121212"
+      panel: "#1e1e24"
+      panel-solid: "#1e1e24"
+      panel-2: "#26262e"
+      line: "rgba(255, 255, 255, 0.1)"
+      line-strong: "rgba(255, 255, 255, 0.2)"
+      glow: "rgba(140, 158, 255, 0.18)"
+      accent: "#8c9eff"
+      accent-2: "#5c6bc0"
+      on-accent: "#0f1433"
+      text: "#ececf1"
+      muted: "#a3a3b3"
+      faint: "#898998"
+      state-idle: "#8c9eff"
+      state-running: "#69f0ae"
+      state-dead: "#ff6e7a"
+      danger: "#ff7d8a"
+  - id: teal
+    label: Teal
+    note: "Dark surfaces, teal accent"
+    style: material
+    tone: dark
+    tokens:
+      bg: "#101414"
+      bg-2: "#101414"
+      panel: "#1b2221"
+      panel-solid: "#1b2221"
+      panel-2: "#222b2a"
+      line: "rgba(255, 255, 255, 0.1)"
+      line-strong: "rgba(255, 255, 255, 0.2)"
+      glow: "rgba(100, 255, 218, 0.16)"
+      accent: "#64ffda"
+      accent-2: "#26a69a"
+      on-accent: "#00382c"
+      text: "#e8f1ef"
+      muted: "#9fb3ae"
+      faint: "#79918c"
+      state-idle: "#64ffda"
+      state-running: "#b2ff59"
+      state-dead: "#ff6e7a"
+      danger: "#ff7d8a"
+  - id: slate
+    label: Slate
+    note: "Mid-grey surfaces, sky-blue accent"
+    style: material
+    tone: mid
+    tokens:
+      bg: "#353a42"
+      bg-2: "#353a42"
+      panel: "#40464f"
+      panel-solid: "#40464f"
+      panel-2: "#4a5059"
+      line: "rgba(255, 255, 255, 0.13)"
+      line-strong: "rgba(255, 255, 255, 0.26)"
+      glow: "rgba(150, 205, 255, 0.18)"
+      accent: "#b8deff"
+      accent-2: "#8bbbe6"
+      on-accent: "#0d2236"
+      text: "#f2f4f7"
+      muted: "#d3d8de"
+      faint: "#c0c6cf"
+      state-idle: "#b8deff"
+      state-running: "#a6f2c8"
+      state-dead: "#ffb3ba"
+      ok: "#a8f3cb"
+      warn: "#ffd89a"
+      danger: "#ffcdd2"
+      sunk: "rgba(0, 0, 0, 0.16)"
+      shadow: "rgba(0, 0, 0, 0.3)"
+  - id: paper
+    label: Paper
+    note: "White surfaces, blue accent"
+    style: material
+    tone: light
+    tokens:
+      bg: "#f4f5f7"
+      bg-2: "#f4f5f7"
+      panel: "#ffffff"
+      panel-solid: "#ffffff"
+      panel-2: "#f7f8fa"
+      line: "rgba(0, 0, 0, 0.1)"
+      line-strong: "rgba(0, 0, 0, 0.22)"
+      glow: "rgba(26, 115, 232, 0.16)"
+      accent: "#1459b3"
+      accent-2: "#174ea6"
+      text: "#1f2328"
+      muted: "#5f6670"
+      faint: "#656c76"
+      state-idle: "#1a73e8"
+      state-running: "#188038"
+      state-dead: "#d93025"
+      ok: "#146c2e"
+      warn: "#8a4b00"
+      danger: "#c0221b"
+      sunk: "rgba(0, 0, 0, 0.04)"
+      tip-bg: "#ffffff"
+      shadow: "rgba(0, 0, 0, 0.16)"
+      text-strong: "#0d1117"
+      on-accent: "#ffffff"
+  - id: sand
+    label: Sand
+    note: "Warm light surfaces, deep orange"
+    style: material
+    tone: light
+    tokens:
+      bg: "#f6f1ea"
+      bg-2: "#f6f1ea"
+      panel: "#fffdf9"
+      panel-solid: "#fffdf9"
+      panel-2: "#faf5ee"
+      line: "rgba(60, 40, 20, 0.12)"
+      line-strong: "rgba(60, 40, 20, 0.24)"
+      glow: "rgba(230, 81, 0, 0.14)"
+      accent: "#a52f0a"
+      accent-2: "#8d6e63"
+      text: "#2b211a"
+      muted: "#6d5d50"
+      faint: "#77675a"
+      state-idle: "#d84315"
+      state-running: "#2e7d32"
+      state-dead: "#c62828"
+      ok: "#256b29"
+      warn: "#864a00"
+      danger: "#b31d1d"
+      sunk: "rgba(60, 40, 20, 0.05)"
+      tip-bg: "#fffdf9"
+      shadow: "rgba(60, 40, 20, 0.16)"
+      text-strong: "#1a120c"
+      on-accent: "#ffffff"

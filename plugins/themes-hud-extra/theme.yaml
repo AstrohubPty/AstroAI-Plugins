@@ -1,0 +1,105 @@
+# Colour schemes as data: colours only, no code and no CSS. AstroAI writes the style rule from these, and refuses a scheme whose text can't be read.
+schemes:
+  - id: emerald
+    label: Emerald matrix
+    note: "Green phosphor on black"
+    style: hud
+    tone: dark
+    tokens:
+      bg: "#020a05"
+      bg-2: "#04150b"
+      panel: "rgba(6, 26, 14, 0.64)"
+      panel-solid: "#05170c"
+      panel-2: "rgba(12, 50, 26, 0.5)"
+      line: "rgba(70, 255, 140, 0.22)"
+      line-strong: "rgba(110, 255, 170, 0.55)"
+      glow: "rgba(50, 255, 130, 0.42)"
+      accent: "#45ff9a"
+      accent-2: "#19a65d"
+      text: "#dcffe9"
+      muted: "#7fb894"
+      faint: "#59886e"
+      state-idle: "#3dff95"
+      state-running: "#d4ff5a"
+      state-dead: "#ff4f5e"
+  - id: violet
+    label: Violet nebula
+    note: "Magenta violet on deep indigo"
+    style: hud
+    tone: dark
+    tokens:
+      bg: "#07040f"
+      bg-2: "#120a26"
+      panel: "rgba(22, 12, 44, 0.64)"
+      panel-solid: "#140b2a"
+      panel-2: "rgba(46, 24, 82, 0.5)"
+      line: "rgba(190, 120, 255, 0.24)"
+      line-strong: "rgba(210, 150, 255, 0.58)"
+      glow: "rgba(180, 90, 255, 0.45)"
+      accent: "#c98bff"
+      accent-2: "#8a4ee0"
+      text: "#f1e6ff"
+      muted: "#a891c9"
+      faint: "#8672aa"
+      state-idle: "#b37dff"
+      state-running: "#6ef2ff"
+      state-dead: "#ff5050"
+  - id: dusk
+    label: Dusk
+    note: "Ice-blue lines on slate, between dark and light"
+    style: hud
+    tone: mid
+    tokens:
+      bg: "#222b37"
+      bg-2: "#2c3747"
+      panel: "rgba(48, 61, 78, 0.74)"
+      panel-solid: "#313d4d"
+      panel-2: "rgba(66, 83, 104, 0.6)"
+      line: "rgba(150, 210, 255, 0.24)"
+      line-strong: "rgba(170, 222, 255, 0.52)"
+      glow: "rgba(120, 200, 255, 0.3)"
+      accent: "#84d6ff"
+      accent-2: "#4f9fd6"
+      text: "#eef6fc"
+      muted: "#bccbd8"
+      faint: "#a9b9c8"
+      state-idle: "#7fd0ff"
+      state-running: "#5ef0c0"
+      state-dead: "#ff7482"
+      ok: "#5ef0b0"
+      warn: "#ffc163"
+      danger: "#ff8796"
+      sunk: "rgba(0, 0, 0, 0.18)"
+      shadow: "rgba(0, 0, 0, 0.35)"
+      vignette: "rgba(8, 12, 20, 0.4)"
+  - id: ivory
+    label: Ivory
+    note: "Burnt amber on warm ivory"
+    style: hud
+    tone: light
+    tokens:
+      bg: "#f5eedf"
+      bg-2: "#ecdfc6"
+      panel: "rgba(255, 251, 243, 0.8)"
+      panel-solid: "#fffaf1"
+      panel-2: "rgba(240, 226, 200, 0.7)"
+      line: "rgba(140, 80, 10, 0.2)"
+      line-strong: "rgba(140, 80, 10, 0.45)"
+      glow: "rgba(200, 110, 0, 0.16)"
+      accent: "#95500a"
+      accent-2: "#b8461c"
+      text: "#2a1a08"
+      muted: "#5c4630"
+      faint: "#6f5a44"
+      state-idle: "#a35a06"
+      state-running: "#3f7f1f"
+      state-dead: "#c0262b"
+      ok: "#2f7429"
+      warn: "#8a4b00"
+      danger: "#b31d1d"
+      sunk: "rgba(90, 50, 10, 0.06)"
+      tip-bg: "rgba(255, 251, 243, 0.96)"
+      shadow: "rgba(80, 50, 10, 0.18)"
+      text-strong: "#1a0f04"
+      on-accent: "#ffffff"
+      vignette: "rgba(110, 70, 20, 0.12)"
