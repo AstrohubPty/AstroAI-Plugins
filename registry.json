@@ -76,6 +76,27 @@
         "commit": "233ba44bdb123af5035eb6a88b1ea920ff981f41",
         "path": "plugins/posthog"
       }
+    },
+    {
+      "id": "themes-classic",
+      "name": "Classic colour schemes",
+      "version": "1.0.0",
+      "type": "theme",
+      "description": "Nord, Gruvbox and Solarized Light, as AstroAI colour schemes.",
+      "author": "AstroHub",
+      "homepage": "https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/themes-classic",
+      "permissions": {
+        "network": [],
+        "exec": [],
+        "peek": [],
+        "effects": [],
+        "capabilities": []
+      },
+      "source": {
+        "git": "https://github.com/AstrohubPty/AstroAI-Plugins",
+        "commit": "91ea70e9ee69c91b379d77f8e7a384890446c89b",
+        "path": "plugins/themes-classic"
+      }
     }
   ]
 }
