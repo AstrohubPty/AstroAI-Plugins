@@ -1,0 +1,26 @@
+id: clickup
+name: ClickUp
+description: Tasks in the ClickUp lists you choose, read with your personal API token.
+icon: check
+hosts: [api.clickup.com]
+docs: https://developer.clickup.com/docs/authentication
+# ClickUp takes the personal token as the whole Authorization value, with no "Bearer".
+http:
+  base_url: https://api.clickup.com/api/v2
+  header: authorization
+  prefix: ""
+  secret: token
+auth:
+  - id: token
+    label: Personal API token
+    help: "In ClickUp: your avatar → Settings → ClickUp API. It starts with pk_ and is kept in your keychain."
+    fields:
+      - { key: token, label: API token, type: string, required: true, secret: true, pattern: "^pk_[A-Za-z0-9_]+$", placeholder: "pk_…" }
+kinds:
+  - id: list
+    label: List
+    capability: tickets
+    description: "A ClickUp list: its tasks, and the ones assigned to you. Pick it from your workspaces, or paste its id (the number in the list's URL)."
+    discover: true
+    scope:
+      - { key: list_id, label: List id, type: string, required: true, pattern: "^\\d+$", placeholder: "901234567" }
