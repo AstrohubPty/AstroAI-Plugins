@@ -25,6 +25,31 @@
         "commit": "54a35b4442e0b74e67e78d2e9ce4bfde12f7e911",
         "path": "plugins/clickup"
       }
+    },
+    {
+      "id": "railway",
+      "name": "Railway",
+      "version": "1.0.0",
+      "type": "integration",
+      "description": "A project's services and the state of their latest deployments, read with an API token.",
+      "author": "AstroHub",
+      "homepage": "https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/railway",
+      "permissions": {
+        "network": [
+          "backboard.railway.com"
+        ],
+        "exec": [],
+        "peek": [],
+        "effects": [],
+        "capabilities": [
+          "hosting"
+        ]
+      },
+      "source": {
+        "git": "https://github.com/AstrohubPty/AstroAI-Plugins",
+        "commit": "75575af7b8187798a2143163b81a4960d432432d",
+        "path": "plugins/railway"
+      }
     }
   ]
 }
