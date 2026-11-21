@@ -1,4 +1,30 @@
 {
   "api": 1,
-  "plugins": []
+  "plugins": [
+    {
+      "id": "clickup",
+      "name": "ClickUp",
+      "version": "1.0.0",
+      "type": "integration",
+      "description": "Tasks from the ClickUp lists you choose, read with your personal API token.",
+      "author": "AstroHub",
+      "homepage": "https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/clickup",
+      "permissions": {
+        "network": [
+          "api.clickup.com"
+        ],
+        "exec": [],
+        "peek": [],
+        "effects": [],
+        "capabilities": [
+          "tickets"
+        ]
+      },
+      "source": {
+        "git": "https://github.com/AstrohubPty/AstroAI-Plugins",
+        "commit": "54a35b4442e0b74e67e78d2e9ce4bfde12f7e911",
+        "path": "plugins/clickup"
+      }
+    }
+  ]
 }
