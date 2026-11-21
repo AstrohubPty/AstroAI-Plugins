@@ -1,0 +1,27 @@
+id: railway
+name: Railway
+description: A project's services and the state of their latest deployments, read with an API token.
+icon: train
+hosts: [backboard.railway.com]
+docs: https://docs.railway.com/integrations/api
+# Railway's GraphQL endpoint; the token goes as a Bearer header.
+http:
+  base_url: https://backboard.railway.com/graphql/v2
+  header: authorization
+  prefix: "Bearer "
+  secret: token
+auth:
+  - id: token
+    label: API token
+    help: "In Railway: your avatar → Account Settings → Tokens (or a workspace's Settings → Tokens) → create a token. It is kept in your keychain. A project token is not enough: it can't list your projects."
+    fields:
+      - { key: token, label: API token, type: string, required: true, secret: true, pattern: "^[A-Za-z0-9._~+/=-]{16,}$", placeholder: paste the token }
+kinds:
+  - id: project
+    label: Project
+    capability: hosting
+    description: "A Railway project: each of its services and how its latest deployment went. Pick it from your projects, or paste its id (in the project's URL)."
+    discover: true
+    scope:
+      - { key: project_id, label: Project id, type: string, required: true, pattern: "^[A-Za-z0-9-]{8,64}$", placeholder: "a1b2c3d4-…" }
+      - { key: environment, label: Environment, type: string, required: false, placeholder: production, help: "Only this environment's services. Blank: every environment." }

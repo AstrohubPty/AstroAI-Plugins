@@ -1,0 +1,14 @@
+api: 1
+id: railway
+name: Railway
+version: 1.0.0
+type: integration
+description: A project's services and the state of their latest deployments, read with an API token.
+author: AstroHub
+license: Apache-2.0
+homepage: https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/railway
+permissions:
+  network: [backboard.railway.com]
+  capabilities: [hosting]
+provides:
+  integration: { manifest: integration.yaml, runtime: runtime.ts }
