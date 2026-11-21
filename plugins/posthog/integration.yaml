@@ -1,0 +1,33 @@
+id: posthog
+name: PostHog
+description: A PostHog project's visitors, pageviews, top pages and the events you count, read with a personal API key.
+icon: chart
+hosts: [us.posthog.com, eu.posthog.com]
+docs: https://posthog.com/docs/api
+# The region picks the host (PostHog Cloud US or EU); the key goes as a Bearer header.
+http:
+  base_url: https://{region}.posthog.com
+  header: authorization
+  prefix: "Bearer "
+  secret: api_key
+auth:
+  - id: api-key
+    label: Personal API key
+    help: "In PostHog: your avatar → Account settings → Personal API keys → create a key with read access to Query and Project. It starts with phx_ and is kept in your keychain. Self-hosted PostHog isn't supported yet."
+    fields:
+      - { key: api_key, label: API key, type: string, required: true, secret: true, pattern: "^phx_[A-Za-z0-9]+$", placeholder: "phx_…" }
+      - key: region
+        label: Region
+        type: select
+        required: true
+        options: [{ value: us, label: US Cloud }, { value: eu, label: EU Cloud }]
+        default: us
+kinds:
+  - id: project
+    label: Project
+    capability: analytics
+    description: "A PostHog project: its pageviews, visitors, top pages and the events you name. Pick it from your projects, or paste its id (the number in the project's URL)."
+    discover: true
+    scope:
+      - { key: project_id, label: Project id, type: string, required: true, pattern: "^\\d+$", placeholder: "12345" }
+      - { key: events, label: Events to count, type: list, required: false, help: "Event names to show beside the pageviews (signup, export_csv…). One per line or comma separated; up to 10." }

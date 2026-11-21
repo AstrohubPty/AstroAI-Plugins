@@ -1,0 +1,14 @@
+api: 1
+id: posthog
+name: PostHog
+version: 1.0.0
+type: integration
+description: Visitors, pageviews, top pages and the events you count in a PostHog project, this week against last.
+author: AstroHub
+license: Apache-2.0
+homepage: https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/posthog
+permissions:
+  network: [us.posthog.com, eu.posthog.com]
+  capabilities: [analytics]
+provides:
+  integration: { manifest: integration.yaml, runtime: runtime.ts }
