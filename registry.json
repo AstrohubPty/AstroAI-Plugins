@@ -260,6 +260,63 @@
         "commit": "67ff894671e869ca3a6fffdc7132cf27d44fc13e",
         "path": "plugins/teams"
       }
+    },
+    {
+      "id": "outlook",
+      "name": "Outlook mail",
+      "version": "1.0.0",
+      "type": "integration",
+      "description": "The mail that needs you in Outlook (Microsoft 365): unread or important, addressed to you and not answered yet, read with your own Microsoft sign-in; reply as you after you confirm.",
+      "author": "AstroHub",
+      "homepage": "https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/outlook",
+      "permissions": {
+        "network": [
+          "graph.microsoft.com",
+          "login.microsoftonline.com"
+        ],
+        "exec": [],
+        "peek": [],
+        "effects": [
+          "email.reply"
+        ],
+        "capabilities": [
+          "email"
+        ]
+      },
+      "source": {
+        "git": "https://github.com/AstrohubPty/AstroAI-Plugins",
+        "commit": "1f2ec374db2c492f5bbb58e44689cb6b604047a2",
+        "path": "plugins/outlook"
+      }
+    },
+    {
+      "id": "gmail",
+      "name": "Gmail",
+      "version": "1.0.0",
+      "type": "integration",
+      "description": "The mail that needs you in Gmail: unread or important, addressed to you and not answered yet, read with your own Google sign-in; reply as you after you confirm.",
+      "author": "AstroHub",
+      "homepage": "https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/gmail",
+      "permissions": {
+        "network": [
+          "gmail.googleapis.com",
+          "accounts.google.com",
+          "oauth2.googleapis.com"
+        ],
+        "exec": [],
+        "peek": [],
+        "effects": [
+          "email.reply"
+        ],
+        "capabilities": [
+          "email"
+        ]
+      },
+      "source": {
+        "git": "https://github.com/AstrohubPty/AstroAI-Plugins",
+        "commit": "1f2ec374db2c492f5bbb58e44689cb6b604047a2",
+        "path": "plugins/gmail"
+      }
     }
   ]
 }
