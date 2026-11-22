@@ -1,0 +1,25 @@
+id: slack
+name: Slack
+description: What needs you in Slack (mentions, direct messages, threads you are in, and the channels you watch), read with your own token.
+icon: chat
+hosts: [slack.com]
+docs: https://api.slack.com/authentication/token-types#user
+# Slack's Web API; the user token goes as a Bearer header.
+http:
+  base_url: https://slack.com/api
+  header: authorization
+  prefix: "Bearer "
+  secret: token
+auth:
+  - id: user-token
+    label: User token
+    help: "Create a Slack app (api.slack.com/apps), add the user token scopes listed in the docs, install it and copy its User OAuth Token (xoxp-…). It acts as you and is kept in your keychain. Some workspaces need an admin to approve it."
+    fields:
+      - { key: token, label: User token, type: string, required: true, secret: true, pattern: "^xox[pe]-[A-Za-z0-9._-]+$", placeholder: "xoxp-…" }
+kinds:
+  - id: workspace
+    label: Workspace
+    capability: chat
+    description: "Your Slack workspace: what mentions you, your direct messages and the threads you are in. Optionally name channels to watch, for digests."
+    scope:
+      - { key: channels, label: Channels to watch, type: list, required: false, help: "Channel names (engineering, releases…), one per line or comma separated, up to 6. Their messages go into a Chat digest brief; they don't count as needing you." }

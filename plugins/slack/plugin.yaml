@@ -1,0 +1,14 @@
+api: 1
+id: slack
+name: Slack
+version: 1.0.0
+type: integration
+description: "What needs you in Slack: mentions, direct messages and threads you are in, and the channels you watch, read with your own token."
+author: AstroHub
+license: Apache-2.0
+homepage: https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/slack
+permissions:
+  network: [slack.com]
+  capabilities: [chat]
+provides:
+  integration: { manifest: integration.yaml, runtime: runtime.ts }
