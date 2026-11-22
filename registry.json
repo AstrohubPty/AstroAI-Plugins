@@ -94,7 +94,7 @@
       },
       "source": {
         "git": "https://github.com/AstrohubPty/AstroAI-Plugins",
-        "commit": "91ea70e9ee69c91b379d77f8e7a384890446c89b",
+        "commit": "25dcbaddd6b3b91d7f6b92a651ee9e1ac3806e28",
         "path": "plugins/themes-classic"
       }
     },
