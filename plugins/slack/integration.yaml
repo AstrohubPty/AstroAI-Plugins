@@ -13,9 +13,12 @@ http:
 auth:
   - id: user-token
     label: User token
-    help: "Create a Slack app (api.slack.com/apps), add the user token scopes listed in the docs, install it and copy its User OAuth Token (xoxp-…). It acts as you and is kept in your keychain. Some workspaces need an admin to approve it."
+    help: "Create a Slack app (api.slack.com/apps), add the user token scopes listed in the docs (chat:write is for replies), install it and copy its User OAuth Token (xoxp-…). It acts as you and is kept in your keychain. Some workspaces need an admin to approve it."
     fields:
       - { key: token, label: User token, type: string, required: true, secret: true, pattern: "^xox[pe]-[A-Za-z0-9._-]+$", placeholder: "xoxp-…" }
+# The only write this plugin may make: the whole of one request. AstroAI refuses anything else, and only sends it after you confirmed it.
+effects:
+  - { id: chat.reply, writes: [{ method: POST, path: "/chat.postMessage" }] }
 kinds:
   - id: workspace
     label: Workspace

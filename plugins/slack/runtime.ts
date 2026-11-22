@@ -1,11 +1,13 @@
 // Slack as an AstroAI integration plugin. It never sees your token: ctx.http asks AstroAI to make each request, signs it, and sends it
-// to slack.com. This file says which Web API calls to make and how to read the answers. Reads only here: no message is posted.
+// to slack.com. This file says which Web API calls to make and how to read the answers. It posts nothing on its own: `chatReply` runs only
+// after you confirmed a reply you drafted in AstroAI's approval queue.
 
 // The shapes AstroAI hands in and expects back (AstroAI's own types: src/plugins/integration-sdk.ts).
 type Query = Record<string, string | number | boolean | string[]>
 interface Ctx {
     simulate: boolean
-    http: { get<T = unknown>(path: string, query?: Query): Promise<T> }
+    // `send` exists only in `chatReply` (the call that does a confirmed write); AstroAI sends nothing but the write declared in integration.yaml.
+    http: { get<T = unknown>(path: string, query?: Query): Promise<T>; send?<T = unknown>(method: 'POST', path: string, body?: Record<string, unknown>): Promise<T> }
 }
 interface Source { id: string; scope: Record<string, unknown> }
 type Why = 'mention' | 'dm' | 'thread' | 'channel'
@@ -19,6 +21,7 @@ interface Message {
     url: string | null
     why: Why
     replies: number
+    reply_to: string | null
 }
 interface Options { sinceHours?: number; limit?: number; channels?: string[] }
 
@@ -114,6 +117,8 @@ export async function chatMessages(ctx: Ctx, source: Source, options: Options = 
         found.set(id, {
             id, channel, thread, author: { id: raw.user ?? raw.bot_id ?? '', name: nameOf(raw.user, raw.username ?? (raw.bot_id ? 'a bot' : undefined)), me: raw.user === me.id },
             text: plain(raw.text ?? '', names).slice(0, 4000), at: isoOf(raw.ts), url: permalink ?? linkFor(workspace, channel.id, raw.ts, thread), why, replies: raw.reply_count ?? 0,
+            // A reply goes in the thread this message is in, or starts one under it (so it never lands loose in a channel); in a direct message it is just the next message.
+            reply_to: channel.kind === 'channel' ? thread ?? raw.ts : null,
         })
     }
 
@@ -161,6 +166,22 @@ export async function chatMessages(ctx: Ctx, source: Source, options: Options = 
     return { me, messages: messages.slice(0, limit), truncated: messages.length > limit }
 }
 
+// ---------- the write: only after you confirmed a reply in AstroAI's approval queue ----------
+
+/** Post a reply as you (a user token posts as its owner). In a thread when `thread` is given. */
+export async function chatReply(ctx: Ctx, _source: Source, channel: string, thread: string | null, text: string) {
+    if (ctx.simulate) return { url: `https://acme.slack.com/archives/${channel}` }
+    const sent = await ctx.http.send!<Reply & { ts?: string; channel?: string }>('POST', '/chat.postMessage', { channel, text, ...(thread ? { thread_ts: thread } : {}), unfurl_links: false, unfurl_media: false })
+    // Slack answers 200 even when it refuses; say what it said.
+    if (!sent?.ok) throw new Error(`Slack: ${WORDS[sent?.error ?? ''] ?? sent?.error ?? 'it did not post'}${sent?.needed ? ` (${sent.needed})` : ''}`)
+    try {
+        const link = await call<Reply & { permalink?: string }>(ctx, 'chat.getPermalink', { channel: sent.channel ?? channel, message_ts: sent.ts ?? '' })
+        return { url: link.permalink ?? null }
+    } catch {
+        return { url: null }
+    }
+}
+
 // ---------- simulate: an invented workspace, so it can be seen with no account ----------
 
 function simulated(options: Options, hours: number) {
@@ -171,12 +192,12 @@ function simulated(options: Options, hours: number) {
     const rel = { id: 'C-rel', name: 'releases', kind: 'channel' as const }
     const alex = { id: 'D-alex', name: 'alex', kind: 'dm' as const }
     const messages: Message[] = [
-        { id: 'C-eng:1', channel: eng, thread: null, author: person('sam'), text: '@riley can you look at the CSV export PR before standup? It blocks the audit log work.', at: ago(25), url: 'https://acme.slack.com/archives/C-eng/p1', why: 'mention', replies: 2 },
-        { id: 'D-alex:1', channel: alex, thread: null, author: person('alex'), text: 'Are we still shipping the digest fix on Friday?', at: ago(70), url: 'https://acme.slack.com/archives/D-alex/p1', why: 'dm', replies: 0 },
-        { id: 'C-eng:2', channel: eng, thread: 'C-eng:0', author: person('jo'), text: 'Re: the timezone bug: it only reproduces for users on a UTC offset with a half hour.', at: ago(180), url: 'https://acme.slack.com/archives/C-eng/p2?thread_ts=0', why: 'thread', replies: 0 },
-        { id: 'D-alex:0', channel: alex, thread: null, author: { id: 'U1', name: 'riley', me: true }, text: 'Morning! Looking at it now.', at: ago(400), url: null, why: 'dm', replies: 0 },
-        { id: 'C-rel:1', channel: rel, thread: null, author: person('priya'), text: 'v2.14 is out: export, audit log filters, and the weekly digest timezone fix.', at: ago(300), url: 'https://acme.slack.com/archives/C-rel/p1', why: 'channel', replies: 4 },
-        { id: 'C-eng:3', channel: eng, thread: null, author: person('sam'), text: 'Deploy of the api service failed on staging: rolling back. Root cause looks like the new migration.', at: ago(600), url: 'https://acme.slack.com/archives/C-eng/p3', why: 'channel', replies: 6 },
+        { id: 'C-eng:1', channel: eng, thread: null, author: person('sam'), text: '@riley can you look at the CSV export PR before standup? It blocks the audit log work.', at: ago(25), url: 'https://acme.slack.com/archives/C-eng/p1', why: 'mention', replies: 2, reply_to: '1700000025.000100' },
+        { id: 'D-alex:1', channel: alex, thread: null, author: person('alex'), text: 'Are we still shipping the digest fix on Friday?', at: ago(70), url: 'https://acme.slack.com/archives/D-alex/p1', why: 'dm', replies: 0, reply_to: null },
+        { id: 'C-eng:2', channel: eng, thread: 'C-eng:0', author: person('jo'), text: 'Re: the timezone bug: it only reproduces for users on a UTC offset with a half hour.', at: ago(180), url: 'https://acme.slack.com/archives/C-eng/p2?thread_ts=0', why: 'thread', replies: 0, reply_to: '1700000000.000100' },
+        { id: 'D-alex:0', channel: alex, thread: null, author: { id: 'U1', name: 'riley', me: true }, text: 'Morning! Looking at it now.', at: ago(400), url: null, why: 'dm', replies: 0, reply_to: null },
+        { id: 'C-rel:1', channel: rel, thread: null, author: person('priya'), text: 'v2.14 is out: export, audit log filters, and the weekly digest timezone fix.', at: ago(300), url: 'https://acme.slack.com/archives/C-rel/p1', why: 'channel', replies: 4, reply_to: null },
+        { id: 'C-eng:3', channel: eng, thread: null, author: person('sam'), text: 'Deploy of the api service failed on staging: rolling back. Root cause looks like the new migration.', at: ago(600), url: 'https://acme.slack.com/archives/C-eng/p3', why: 'channel', replies: 6, reply_to: null },
     ]
     const wanted = (options.channels ?? ['engineering', 'releases']).map((name) => name.replace(/^#/, ''))
     return { ...base, messages: messages.filter((message) => message.why !== 'channel' || wanted.includes(message.channel.name)).filter((message) => Date.parse(message.at) > Date.now() - hours * 3_600_000), truncated: false }
