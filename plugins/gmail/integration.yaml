@@ -1,0 +1,34 @@
+id: gmail
+name: Gmail
+description: "The mail that needs you in Gmail: unread or important, addressed to you and not answered yet."
+icon: mail
+hosts: [gmail.googleapis.com, accounts.google.com, oauth2.googleapis.com]
+docs: https://developers.google.com/gmail/api/guides
+# The Gmail API. AstroAI signs you in with OAuth and signs each request with a short-lived access token; the plugin never sees it.
+http:
+  base_url: https://gmail.googleapis.com/gmail/v1/users/me
+  oauth: true
+  header: authorization
+  prefix: "Bearer "
+# The only write this plugin may make: the whole of one request. AstroAI refuses anything else, and only sends it after you confirmed it.
+effects:
+  - { id: email.reply, writes: [{ method: POST, path: "/messages/send" }] }
+auth:
+  - id: google
+    label: Google account (OAuth)
+    help: "In Google Cloud Console create a project, enable the Gmail API, set up the OAuth consent screen (add yourself as a test user) and create an OAuth client ID of type Desktop app. Add the redirect URI shown below. Paste its client ID and client secret, then Sign in."
+    oauth:
+      authorize_url: https://accounts.google.com/o/oauth2/v2/auth
+      token_url: https://oauth2.googleapis.com/token
+      scopes: ["https://www.googleapis.com/auth/gmail.readonly", "https://www.googleapis.com/auth/gmail.send"]
+      client_secret_field: client_secret
+      params: { access_type: offline, prompt: consent }
+    fields:
+      - { key: client_id, label: Client ID, type: string, required: true, pattern: "^[A-Za-z0-9._-]+\\.apps\\.googleusercontent\\.com$", placeholder: "…apps.googleusercontent.com" }
+      - { key: client_secret, label: Client secret, type: string, required: true, secret: true, placeholder: "GOCSPX-…" }
+kinds:
+  - id: mailbox
+    label: Mailbox
+    capability: email
+    description: "Your Gmail inbox: what needs a reply from you."
+    scope: []

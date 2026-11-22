@@ -1,0 +1,16 @@
+api: 1
+id: outlook
+name: Outlook mail
+version: 1.0.0
+type: integration
+description: "The mail that needs you in Outlook (Microsoft 365): unread or important, addressed to you and not answered yet, read with your own Microsoft sign-in; reply as you after you confirm."
+author: AstroHub
+license: Apache-2.0
+homepage: https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/outlook
+permissions:
+  # graph.microsoft.com is read; login.microsoftonline.com is where AstroAI signs you in and refreshes the sign-in (the plugin's code never sees it).
+  network: [graph.microsoft.com, login.microsoftonline.com]
+  capabilities: [email]
+  effects: [email.reply]
+provides:
+  integration: { manifest: integration.yaml, runtime: runtime.ts }

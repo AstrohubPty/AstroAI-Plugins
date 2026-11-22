@@ -1,0 +1,16 @@
+api: 1
+id: gmail
+name: Gmail
+version: 1.0.0
+type: integration
+description: "The mail that needs you in Gmail: unread or important, addressed to you and not answered yet, read with your own Google sign-in; reply as you after you confirm."
+author: AstroHub
+license: Apache-2.0
+homepage: https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/gmail
+permissions:
+  # gmail.googleapis.com is read; accounts.google.com and oauth2.googleapis.com are where AstroAI signs you in and refreshes the sign-in (the plugin's code never sees it).
+  network: [gmail.googleapis.com, accounts.google.com, oauth2.googleapis.com]
+  capabilities: [email]
+  effects: [email.reply]
+provides:
+  integration: { manifest: integration.yaml, runtime: runtime.ts }
