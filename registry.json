@@ -25,7 +25,7 @@
       },
       "source": {
         "git": "https://github.com/AstrohubPty/AstroAI-Plugins",
-        "commit": "e89549e77ea5de319189cc4e0973332a4ebe79ca",
+        "commit": "f513bd3798c7aae5dc55bb6ed1ca259a96407d0c",
         "path": "plugins/clickup"
       }
     },
