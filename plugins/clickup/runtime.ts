@@ -5,7 +5,8 @@
 type Query = Record<string, string | number | boolean | string[]>
 interface Ctx {
     simulate: boolean
-    http: { get<T = unknown>(path: string, query?: Query): Promise<T>; find<T = unknown>(path: string, query?: Query): Promise<T | null> }
+    // `send` exists only in the two calls below that do a confirmed write; AstroAI sends nothing but the writes declared in integration.yaml.
+    http: { get<T = unknown>(path: string, query?: Query): Promise<T>; find<T = unknown>(path: string, query?: Query): Promise<T | null>; send?<T = unknown>(method: 'POST' | 'PUT', path: string, body?: Record<string, unknown>): Promise<T> }
 }
 interface Source { id: string; scope: Record<string, unknown> }
 type Stage = 'todo' | 'active' | 'done' | 'cancelled'
@@ -172,6 +173,24 @@ export async function ticketsGet(ctx: Ctx, _source: Source, id: string, options?
     if (!task) return null
     const comments = options?.comments === false ? [] : (await ctx.http.get<{ comments: RawComment[] }>(`/task/${encodeURIComponent(id)}/comment`)).comments ?? []
     return taskToTicket(task, comments.slice().sort((a, b) => Number(a.date) - Number(b.date)))
+}
+
+// ---------- writes: only after you confirm each one in AstroAI's approval queue ----------
+
+const taskUrl = (id: string) => `https://app.clickup.com/t/${id}`
+
+/** Post a comment on a task. (`notify_all: false`: it doesn't ping everyone watching.) */
+export async function ticketsComment(ctx: Ctx, _source: Source, id: string, body: string) {
+    if (ctx.simulate) return { url: taskUrl(id) }
+    await ctx.http.send!('POST', `/task/${id}/comment`, { comment_text: body, notify_all: false })
+    return { url: taskUrl(id) }
+}
+
+/** Move a task to another of its list's statuses (by the status's name, as the list has it). */
+export async function ticketsMove(ctx: Ctx, _source: Source, id: string, status: string) {
+    if (ctx.simulate) return { url: taskUrl(id) }
+    await ctx.http.send!('PUT', `/task/${id}`, { status })
+    return { url: taskUrl(id) }
 }
 
 // ---------- simulate: invented data through the same mapping ----------

@@ -1,7 +1,7 @@
 api: 1
 id: clickup
 name: ClickUp
-version: 1.0.0
+version: 1.1.0
 type: integration
 description: Tasks from the ClickUp lists you choose, read with your personal API token.
 author: AstroHub
@@ -10,5 +10,7 @@ homepage: https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/click
 permissions:
   network: [api.clickup.com]
   capabilities: [tickets]
+  # Writes: each is drafted in AstroAI's approval queue and done only after you confirm it (dry-run, the default, only records it).
+  effects: [tickets.comment, tickets.move]
 provides:
   integration: { manifest: integration.yaml, runtime: runtime.ts }

@@ -16,6 +16,10 @@ auth:
     help: "In ClickUp: your avatar → Settings → ClickUp API. It starts with pk_ and is kept in your keychain."
     fields:
       - { key: token, label: API token, type: string, required: true, secret: true, pattern: "^pk_[A-Za-z0-9_]+$", placeholder: "pk_…" }
+# The only writes this plugin may make, each the whole of one request. AstroAI refuses anything else, and only sends these after you confirmed it.
+effects:
+  - { id: tickets.comment, writes: [{ method: POST, path: "/task/{id}/comment" }] }
+  - { id: tickets.move, writes: [{ method: PUT, path: "/task/{id}" }] }
 kinds:
   - id: list
     label: List
