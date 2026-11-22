@@ -205,6 +205,31 @@
         "commit": "28e1c078fd90d2d9c3a8c75bdf9fbf05cfe9c4f7",
         "path": "plugins/map-styles-classic"
       }
+    },
+    {
+      "id": "slack",
+      "name": "Slack",
+      "version": "1.0.0",
+      "type": "integration",
+      "description": "What needs you in Slack: mentions, direct messages and threads you are in, and the channels you watch, read with your own token.",
+      "author": "AstroHub",
+      "homepage": "https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/slack",
+      "permissions": {
+        "network": [
+          "slack.com"
+        ],
+        "exec": [],
+        "peek": [],
+        "effects": [],
+        "capabilities": [
+          "chat"
+        ]
+      },
+      "source": {
+        "git": "https://github.com/AstrohubPty/AstroAI-Plugins",
+        "commit": "78f5c705d8a03eb65a8e89c14795652123047e20",
+        "path": "plugins/slack"
+      }
     }
   ]
 }
