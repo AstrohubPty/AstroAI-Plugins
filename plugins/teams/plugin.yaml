@@ -1,0 +1,16 @@
+api: 1
+id: teams
+name: Microsoft Teams
+version: 1.0.0
+type: integration
+description: "What needs you in Teams chats: direct messages and group chats that mention you, read with your own Microsoft sign-in; reply as you after you confirm."
+author: AstroHub
+license: Apache-2.0
+homepage: https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/teams
+permissions:
+  # graph.microsoft.com is read; login.microsoftonline.com is where AstroAI signs you in and refreshes the sign-in (the plugin's code never sees it).
+  network: [graph.microsoft.com, login.microsoftonline.com]
+  capabilities: [chat]
+  effects: [chat.reply]
+provides:
+  integration: { manifest: integration.yaml, runtime: runtime.ts }

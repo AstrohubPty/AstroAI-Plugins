@@ -1,0 +1,33 @@
+id: teams
+name: Microsoft Teams
+description: What needs you in your Teams chats (direct messages, and group chats that mention you), read with your own Microsoft sign-in.
+icon: chat
+hosts: [graph.microsoft.com, login.microsoftonline.com]
+docs: https://learn.microsoft.com/graph/api/chat-list
+# Microsoft Graph. AstroAI signs you in with OAuth and signs each request with a short-lived access token; the plugin never sees it.
+http:
+  base_url: https://graph.microsoft.com/v1.0
+  oauth: true
+  header: authorization
+  prefix: "Bearer "
+# The only write this plugin may make: the whole of one request. AstroAI refuses anything else, and only sends it after you confirmed it.
+effects:
+  - { id: chat.reply, writes: [{ method: POST, path: "/chats/{id}/messages" }] }
+auth:
+  - id: microsoft
+    label: Microsoft account (OAuth)
+    help: "Register an app in Microsoft Entra (portal.azure.com → App registrations), add the redirect URI shown below as a Mobile and desktop application, and allow the Graph delegated permissions Chat.Read, ChatMessage.Send, User.Read and offline_access. Paste its Application (client) ID. Then Sign in."
+    oauth:
+      authorize_url: https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
+      token_url: https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
+      scopes: [offline_access, User.Read, Chat.Read, ChatMessage.Send]
+      params: { prompt: select_account }
+    fields:
+      - { key: client_id, label: Application (client) ID, type: string, required: true, pattern: "^[0-9a-fA-F-]{36}$", placeholder: "00000000-0000-0000-0000-000000000000" }
+      - { key: tenant, label: Directory (tenant), type: string, required: true, default: organizations, pattern: "^[A-Za-z0-9.-]{1,64}$", help: "organizations (work or school accounts), common, consumers, or your tenant id or domain." }
+kinds:
+  - id: chats
+    label: Teams chats
+    capability: chat
+    description: "Your Teams chats: direct messages and the group chats that mention you."
+    scope: []
