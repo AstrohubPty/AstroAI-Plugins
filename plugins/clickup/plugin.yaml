@@ -3,7 +3,7 @@ id: clickup
 name: ClickUp
 version: 1.1.0
 type: integration
-description: Tasks from the ClickUp lists you choose, read with your personal API token.
+description: "Tasks from the ClickUp lists you choose, read with your personal API token; comment on a task or move it, after you confirm."
 author: AstroHub
 license: Apache-2.0
 homepage: https://github.com/AstrohubPty/AstroAI-Plugins/tree/main/plugins/clickup
